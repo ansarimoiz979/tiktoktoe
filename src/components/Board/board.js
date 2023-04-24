@@ -1,9 +1,25 @@
 import './board.css';
 import Box from '../Box/box';
-function App() {
+function Board() {
   return (
-    <div className="App">
+    <div className='board-container'>
+        <div  className='board-row' >
         <Box/>
+        <Box/>
+        <Box/>
+        </div>
+
+        <div className='board-row'>
+        <Box/>
+        <Box/>
+        <Box/>
+        </div>
+
+        <div className='board-row'>
+        <Box/>
+        <Box/>
+        <Box/>
+        </div>
     </div>
   );
 }

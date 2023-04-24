@@ -1,8 +1,9 @@
 import './box.css';
 
-function App() {
+function Box() {
   return (
-    <div className="App">
+    <div className='each-box'>
+        <h5>X</h5>
     </div>
   );
 }

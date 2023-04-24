@@ -1,0 +1,15 @@
+.board-container
+{
+    /* display: flex;
+    align-items: center; */
+    margin-left: 33%;
+}
+
+.board-row
+{
+    border: 2px solid gray;
+    display: flex;
+    width: 300px;
+    justify-content: space-evenly;
+    align-items: center;
+}
