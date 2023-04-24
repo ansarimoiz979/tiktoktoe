@@ -45,7 +45,7 @@ function Board() {
             setIsXTurn(!isXTurn)
         } else {
             //if box is already selected
-            console.log("box is already selected");
+            window.alert("box is already selected")
             return
         }
     }
