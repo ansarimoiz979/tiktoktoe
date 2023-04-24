@@ -1,0 +1,9 @@
+.each-box
+{
+    border: 1px dotted gray;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
