@@ -21,7 +21,7 @@ function Board() {
             const [a, b, c] = logic;
             if (box[a] !== null && box[a] === box[b] && box[a] === box[c]) {
                 console.log("won");
-                return true;
+                return box[a];
             }
         }
         return false;
@@ -49,30 +49,45 @@ function Board() {
             return
         }
     }
+
+
+    const handleReset = () => {
+        setBox(Array(9).fill(null));
+        setIsXTurn(true);
+        isWinner = false;
+    }
+
     return (
         <>
-                {isWinner ? <h1>someone won</h1> :
-                    <div className='board-container'>
-                        <div className='board-row' >
-                            <Box value={box[0]} actionClick={() => handleClickAction(0)} />
-                            <Box value={box[1]} actionClick={() => handleClickAction(1)} />
-                            <Box value={box[2]} actionClick={() => handleClickAction(2)} />
-                        </div>
+            {isWinner ? (<div>
+                <h1>'{isWinner}' won the game</h1>
+                <button onClick={() => handleReset()} >Play again</button>
+            </div>) :
+                (
+                    <>
+                        <h5>{isXTurn ? <h2>Player X, Please move.</h2> : <h2>Player O, Please move.</h2>}</h5>
+                        <div className='board-container'>
+                            <div className='board-row' >
+                                <Box value={box[0]} actionClick={() => handleClickAction(0)} />
+                                <Box value={box[1]} actionClick={() => handleClickAction(1)} />
+                                <Box value={box[2]} actionClick={() => handleClickAction(2)} />
+                            </div>
 
-                        <div className='board-row'>
-                            <Box value={box[3]} actionClick={() => handleClickAction(3)} />
-                            <Box value={box[4]} actionClick={() => handleClickAction(4)} />
-                            <Box value={box[5]} actionClick={() => handleClickAction(5)} />
-                        </div>
+                            <div className='board-row'>
+                                <Box value={box[3]} actionClick={() => handleClickAction(3)} />
+                                <Box value={box[4]} actionClick={() => handleClickAction(4)} />
+                                <Box value={box[5]} actionClick={() => handleClickAction(5)} />
+                            </div>
 
-                        <div className='board-row'>
-                            <Box value={box[6]} actionClick={() => handleClickAction(6)} />
-                            <Box value={box[7]} actionClick={() => handleClickAction(7)} />
-                            <Box value={box[8]} actionClick={() => handleClickAction(8)} />
-                        </div>
+                            <div className='board-row'>
+                                <Box value={box[6]} actionClick={() => handleClickAction(6)} />
+                                <Box value={box[7]} actionClick={() => handleClickAction(7)} />
+                                <Box value={box[8]} actionClick={() => handleClickAction(8)} />
+                            </div>
 
-                    </div>
-                }
+                        </div>
+                    </>)
+            }
         </>
     );
 }
