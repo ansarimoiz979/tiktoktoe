@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import './board.css';
 import Box from '../Box/box';
-import { useState } from 'react';
+
 function Board() {
     let [box, setBox] = useState(Array(9).fill(null))
     let [isXTurn, setIsXTurn] = useState(true);
@@ -27,6 +28,12 @@ function Board() {
         return false;
     }
 
+    const resetGameHandler = () => {
+        console.log("reset game");
+        alert("You want to reset the Game!")
+
+    }
+
     let isWinner = checkWinner();
 
 
@@ -36,10 +43,10 @@ function Board() {
             console.log("clicked on index", index)
             let newState = [...box];
             if (isXTurn) {
-                newState[index] = "X";
+                newState[index] = 1;
             }
             else {
-                newState[index] = "O";
+                newState[index] = 0;
             }
             setBox(newState)
             setIsXTurn(!isXTurn)
@@ -65,7 +72,9 @@ function Board() {
             </div>) :
                 (
                     <>
+
                         <h5>{isXTurn ? <h2>Player X, Please move.</h2> : <h2>Player O, Please move.</h2>}</h5>
+                        <h5><button onClick={() => handleReset()} >Reset Game.</button></h5>
                         <div className='board-container'>
                             <div className='board-row' >
                                 <Box value={box[0]} actionClick={() => handleClickAction(0)} />
